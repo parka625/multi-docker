@@ -1,0 +1,20 @@
+sudo: required
+# specify needed services
+services:
+  - docker
+
+# build images for desired testing etc
+before_install:
+  - docker build -t parkeri/react-test -f ./client/Dockerfile.dev ./client
+
+# run the test scripts, arguments between run and image tag are
+# specific to create-react-app. -e is docker variable for environment
+script:
+  - docker run -e CI=true parkeri/react-test npm test
+
+# after successful tests, build prod for all containers
+after_success:
+  - docker build -t parkeri/multi-client ./client
+  - docker build -t parkeri/multi-nginx ./nginx
+  - docker build -t parkeri/multi-server ./server
+  - docker build -t parkeri/multi-worker ./worker
