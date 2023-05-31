@@ -14,10 +14,10 @@ script:
 
 # after successful tests, build prod for all containers
 after_success:
-  - docker build -t parkeri/multi-client ./client
-  - docker build -t parkeri/multi-nginx ./nginx
-  - docker build -t parkeri/multi-server ./server
-  - docker build -t parkeri/multi-worker ./worker
+  - docker build -t iparker24/multi-client ./client
+  - docker build -t iparker24/multi-nginx ./nginx
+  - docker build -t iparker24/multi-server ./server
+  - docker build -t iparker24/multi-worker ./worker
 
   # login to docker ready to push images to hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin

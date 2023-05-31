@@ -4,7 +4,26 @@
     {
       "name": "client",
       "image": "iparker24/multi-client",
-      "hostname": "client"
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "iparker24/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "iparker24/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "iparker24/multi-nginx",
+      "hostname": "nginx",
+      "essential": true
     }
   ]
 }
