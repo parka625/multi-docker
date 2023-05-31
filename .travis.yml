@@ -18,3 +18,11 @@ after_success:
   - docker build -t parkeri/multi-nginx ./nginx
   - docker build -t parkeri/multi-server ./server
   - docker build -t parkeri/multi-worker ./worker
+
+  # login to docker ready to push images to hub
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # push images to docker hub
+  - docker push parkeri/multi-client
+  - docker push parkeri/multi-nginx
+  - docker push parkeri/multi-server
+  - docker push parkeri/multi-worker
