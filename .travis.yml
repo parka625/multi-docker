@@ -22,7 +22,7 @@ after_success:
   # login to docker ready to push images to hub
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images to docker hub.
-  - docker push parkeri/multi-client
-  - docker push parkeri/multi-nginx
-  - docker push parkeri/multi-server
-  - docker push parkeri/multi-worker
+  - docker push iparker24/multi-client
+  - docker push iparker24/multi-nginx
+  - docker push iparker24/multi-server
+  - docker push iparker24/multi-worker
