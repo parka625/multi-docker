@@ -19,7 +19,7 @@ after_success:
   - docker build -t iparker24/multi-server ./server
   - docker build -t iparker24/multi-worker ./worker
 
-  # login to docker ready to push images to hub
+  # login to docker ready to push images to hub.
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # push images to docker hub.
   - docker push iparker24/multi-client
