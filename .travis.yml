@@ -26,3 +26,15 @@ after_success:
   - docker push iparker24/multi-nginx
   - docker push iparker24/multi-server
   - docker push iparker24/multi-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: multi-docker
+  env: Multi-Docker-env
+  bucket_name: elasticbeanstalk-us-east-1-573723597369
+  bucket_path: multi-docker
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
